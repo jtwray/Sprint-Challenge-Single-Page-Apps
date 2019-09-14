@@ -1,6 +1,9 @@
-import React from "react";
-import { Tab, Menu, Icon } from "semantic-ui-react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import {Tab, Menu, Icon} from 'semantic-ui-react';
+import {NavLink,Route} from 'react-router-dom';
+import CharacterList from './CharacterList';
+// import EpisodeList from './EpisodeList';
+// import LocationList from './LocationList';
 
 // TODO: Add missing menu/tabs/nav below
 
@@ -10,6 +13,11 @@ import { NavLink } from "react-router-dom";
 // https://react.semantic-ui.com/elements/button/
 // https://react.semantic-ui.com/collections/breadcrumb/
 
-export default function TabNav() {
+export default function TabNav({characters, setCharacters}) {
+   return (
 
+        <>
+        <CharacterList characters={characters} setCharacters={setCharacters}/>
+     </>
+)
 };
