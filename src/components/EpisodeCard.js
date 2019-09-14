@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function LocationCard({ name, type, dimension, residents }) {
+export default function EpisodeCard({ name, type, dimension, residents }) {
  	return (
 		<div>
 			<h1> {name} </h1> 
