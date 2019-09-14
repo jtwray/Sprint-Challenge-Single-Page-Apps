@@ -26,10 +26,12 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Explain benefit(s) using `client-side routing`?
 > Answer:
+client side routing downloads all the data from server at  the first go around and renders on the users computer. it has faster sitch time between pages 
 - [ ] What does AJAX stand for?
 > Answer:
+asynchronous javascript and xml its used to make get put post delete calls to the server to xchange data for a client side application
 - [ ] What are `controlled components` in React?
-> Answer:
+> Answer:controlled components are controlled by react rather than the dom
 
 
 ## Project Set Up
