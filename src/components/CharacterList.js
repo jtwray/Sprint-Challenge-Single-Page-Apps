@@ -1,13 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import Axios from 'axios';
 import CharacterCard from './CharacterCard';
+import styled from 'styled-components';
 
 export default function CharacterList({characters, setCharacters}) {
+	const charsApiResponse = useRef();
 	useEffect(() => {
-		Axios.get(`https://rickandmortyapi.com/api/character/`)
+		Axios.get(`https://rick-api.herokuapp.com/api/character`)
 			.then(res => {
-				setCharacters(res.data.results);
-				console.log(res.data.results);
+				console.log(res.data);
+				charsApiResponse.current = res.data.results;
+				setCharacters(charsApiResponse.current);
+				console.log(`charsApiResponse.current:${res.data.results}`);
 			})
 			.catch(error => {
 				console.log(error);
@@ -21,10 +25,17 @@ export default function CharacterList({characters, setCharacters}) {
 		<section className="character-list grid-view">
 			{characters &&
 				characters.map((character, index) => (
-					<div key={index}>
+					<CardContainer key={index}>
 						<CharacterCard character={character} />
-					</div>
+					</CardContainer>
 				))}
 		</section>
 	);
 }
+
+const CardContainer = styled.div`
+	height: auto;
+	margin: 1%;
+	white-space: pre-wrap;
+	flex: 1 2 200px;
+`;
