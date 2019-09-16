@@ -6,7 +6,8 @@ import EpisodeList from './EpisodeList';
 import LocationList from './LocationList';
 import CharacterCard from './CharacterCard';
 import SingleCharacterCard from './SingleCharacterCard';
-
+import Searchbar from './Searchbar';
+import WelcomePage from './WelcomePage';
 
 // TODO: Add missing menu/tabs/nav below
 
@@ -19,13 +20,15 @@ import SingleCharacterCard from './SingleCharacterCard';
 export default function TabNav({characters, setCharacters,locations,setLocations,episodes,setEpisodes}) {
    return (
        <>
+
             <nav>
                 <NavLink to={`/rickandmorty/characters`}>Characters</NavLink>
                 <NavLink to={`/rickandmorty/locations`}>Location</NavLink>
                 <NavLink to={`/rickandmorty/episodes`}>Episode</NavLink>
             </nav>
-            
+            <Searchbar />
             <Route exact path="/rickandmorty/characters/:characterID" component={SingleCharacterCard}/>
+            <Route exact path="/rickandmorty" component={WelcomePage}/>
 
 
             <Route exact path="/rickandmorty/characters/" render={ props => <CharacterList characters={characters} setCharacters={setCharacters} {...props} /> } />

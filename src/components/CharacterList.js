@@ -2,6 +2,9 @@ import React, {useEffect, useState, useRef} from 'react';
 import Axios from 'axios';
 import CharacterCard from './CharacterCard';
 import styled from 'styled-components';
+import SearchForm from './SearchForm';
+import {Route} from 'react-router-dom';
+
 
 export default function CharacterList({characters, setCharacters}) {
 	const charsApiResponse = useRef();
@@ -29,6 +32,7 @@ export default function CharacterList({characters, setCharacters}) {
 						<CharacterCard character={character} />
 					</CardContainer>
 				))}
+				<Route path="/rickandmorty/characters/"   render={ props => <SearchForm     chars={characters}      {...props} /> } />
 		</section>
 	);
 }
