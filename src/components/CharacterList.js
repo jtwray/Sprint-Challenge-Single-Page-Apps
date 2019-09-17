@@ -2,18 +2,17 @@ import React, {useEffect, useState, useRef} from 'react';
 import Axios from 'axios';
 import CharacterCard from './CharacterCard';
 import styled from 'styled-components';
-import SearchForm from './SearchForm';
+
 import {Route} from 'react-router-dom';
 
 
 export default function CharacterList({characters, setCharacters}) {
-	const charsApiResponse = useRef();
+
 	useEffect(() => {
 		Axios.get(`https://rick-api.herokuapp.com/api/character`)
 			.then(res => {
 				console.log(res.data);
-				charsApiResponse.current = res.data.results;
-				setCharacters(charsApiResponse.current);
+				setCharacters(res.data.results);
 				console.log(`charsApiResponse.current:${res.data.results}`);
 			})
 			.catch(error => {
@@ -22,22 +21,22 @@ export default function CharacterList({characters, setCharacters}) {
 
 		// TODO: Add API Request here - must run in `useEffect`
 		//  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-	}, []);
+	}, [setCharacters]);
 
 	return (
 		<section className="character-list grid-view">
 			{characters &&
 				characters.map((character, index) => (
-					<CardContainer key={index}>
+					<CharacterCardContainer key={character.name}>
 						<CharacterCard character={character} />
-					</CardContainer>
+					</CharacterCardContainer>
 				))}
-				<Route path="/rickandmorty/characters/"   render={ props => <SearchForm     chars={characters}      {...props} /> } />
+			
 		</section>
 	);
 }
 
-const CardContainer = styled.div`
+const CharacterCardContainer = styled.div`
 	height: auto;
 	margin: 1%;
 	white-space: pre-wrap;

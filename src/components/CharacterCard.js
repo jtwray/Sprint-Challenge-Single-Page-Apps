@@ -3,21 +3,21 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 export default function CharacterCard(props) {
-	
 	return (
+		
+		<Card>
 		<Link
-			to={`/rickandmorty/characters/${props.character.id}`}
-			key={`${props.character.name}${props.character.id}`}
+		to={`/rickandmorty/characters/${props.character.id}`}
+		key={`${props.character.name}${props.character.id}`}
 		>
-			<Card>
-				<h1> {props.character.name} </h1>
+		<h1> {props.character.name} </h1>
+		</Link>
 				<img src={props.character.image} alt={props.character.name} />
 
 				<span>status: {props.character.status} </span>
 				<span>gender: {props.character.gender} </span>
 				<span>species: {props.character.species} </span>
 			</Card>
-		</Link>
 	);
 }
 
