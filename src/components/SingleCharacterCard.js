@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
 
-export default function SingleCharacterCard(props) {
+export default function SingleCharacterCard({match},props) {
 	const [card, setCard] = useState({});
-	console.log(props.match);
+	console.log("line8SingleCharCard:",{match});
 
-	const charid = props.match.params.characterID;
+	const charid = match.params.characterID;
 	useEffect(
 		() => {
 			Axios.get(`https://rickandmortyapi.com/api/character/${charid}`)
@@ -14,7 +14,7 @@ export default function SingleCharacterCard(props) {
 				.then(res => console.log(res))
 				.catch(error => console.log(error));
 		},
-		[charid, setCard]
+		[charid]
 	);
 	return (
 		<div>

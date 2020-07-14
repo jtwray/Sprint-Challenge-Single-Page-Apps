@@ -27,17 +27,13 @@ export default function LocationList({locations, setLocations}) {
 		<section className="character-list grid-view">
 			{locations &&
 				locations.map((location) => (
-					<div key={`${location.name}`}>
-						<LocationCardContainer>
+					
+						<LocationCardContainer key={location.name}>
 							<LocationCard
-								name={location.name}
-								type={location.type}
-								dimension={location.dimension}
-								id={location.id}
-								
+							location={location}								
 							/>
 						</LocationCardContainer>
-					</div>
+					
 				))}
 		</section>
 	);

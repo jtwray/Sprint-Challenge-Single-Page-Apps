@@ -23,22 +23,18 @@ import styled from 'styled-components';
 // https://react.semantic-ui.com/collections/breadcrumb/
 
 export default function TabNav({characters, setCharacters,locations,setLocations,episodes,setEpisodes}) {
-   return (
+  console.log("line26TabNav",{characters},{locations},{episodes})
+    return (
        <>
 
             <NavMenu>
             
-            <NavLink  to={`/rickandmorty/characters`}>Characters</NavLink>
-            <NavLink  to={`/rickandmorty/locations`}>Location</NavLink>
-            <NavLink  to={`/rickandmorty/episodes`}>Episode</NavLink>
-            <NavLink  to={`/`}>Home</NavLink>
+            <NavLink  to='/rickandmorty/characters'>Characters</NavLink>
+            <NavLink  to='/rickandmorty/locations'>Location</NavLink>
+            <NavLink  to='/rickandmorty/episodes'>Episode</NavLink>
+            <NavLink  to='/'>Home</NavLink>
 
             </NavMenu>
-          
-          <Route  exact path="/rickandmorty/episodes/:episodeID" component={SingleEpisodeCard}/>
-          <Route exact path="/rickandmorty/characters/:characterID" component={SingleCharacterCard}/>
-          <Route  exact path="/rickandmorty/locations/:locationID" component={SingleLocationCard}/>
-          
           
 
         
@@ -48,6 +44,11 @@ export default function TabNav({characters, setCharacters,locations,setLocations
           <Route exact path="/rickandmorty/characters/" render={ props => <CharacterList characters={characters} setCharacters={setCharacters} {...props} /> } />
           <Route exact path="/rickandmorty/locations/"  render={ props => <LocationList    locations={locations}   setLocations={setLocations} {...props} /> } />
           <Route exact path="/rickandmorty/episodes/"   render={ props => <EpisodeList       episodes={episodes}     setEpisodes={setEpisodes} {...props} /> } />
+          <Route exact path="/rickandmorty/characters/:characterID" component={SingleCharacterCard}/>
+          <Route exact path="/rickandmorty/locations/:locationID" component={SingleLocationCard}/>
+          <Route exact path="/rickandmorty/episodes/:episodeID" component={SingleEpisodeCard}/>
+          
+          
          
             
        </>

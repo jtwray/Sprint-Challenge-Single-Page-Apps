@@ -32,7 +32,7 @@ const Card = styled.div`
 	font-size:1.0rem;
 	background-color: #f0f0ff;
 	white-space:nowrap;
-	
+	width:30vw;
     height: auto;
     margin: 1%;
     

@@ -9,7 +9,7 @@ import {Route} from 'react-router-dom';
 export default function CharacterList({characters, setCharacters}) {
 
 	useEffect(() => {
-		Axios.get(`https://rick-api.herokuapp.com/api/character`)
+		Axios.get(`https://rickandmortyapi.com/api/character`)
 			.then(res => {
 				console.log(res.data);
 				setCharacters(res.data.results);
