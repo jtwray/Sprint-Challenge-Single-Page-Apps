@@ -14,7 +14,7 @@ export default function SingleEpisodeCard(props) {
 				.then(res => console.log(res))
 				.catch(error => console.log(error));
 		},
-		[episodeid, setRMEpisode]
+		[episodeid]
 	);
 	return (
 		<div>

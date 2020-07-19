@@ -29,13 +29,7 @@ export default function LocationList({locations, setLocations}) {
 				locations.map((location) => (
 					<div key={`${location.name}`}>
 						<LocationCardContainer>
-							<LocationCard
-								name={location.name}
-								type={location.type}
-								dimension={location.dimension}
-								id={location.id}
-								
-							/>
+							<LocationCard location={location}/>
 						</LocationCardContainer>
 					</div>
 				))}

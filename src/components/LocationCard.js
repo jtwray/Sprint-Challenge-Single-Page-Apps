@@ -1,34 +1,27 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import CharacterCard from './CharacterCard';
-import SingleLocationCard from './SingleLocationCard';
-
-export default function LocationCard({name, type, dimension},props){ 
 
 
-
-
-
-
-
-console.log(`key=${name}`)
-
+export default function LocationCard(props){ 
 	return (
-		<div>
+
+	<div>
 		<L>
-		<h4>name:{name}</h4>
-		<h4>dimension: {dimension} </h4>
-		<h4>type: {type} </h4>
+		<h4>name:{props.location.name}</h4>
+		<h4>dimension: {props.location.dimension} </h4>
+		<h4>type: {props.location.type} </h4>
+		<h4>props.location.id: {props.location.id} </h4>
+
 		
-		
-		<Link  to={`/rickandmorty/locations/${props.id}`} >Location #{props.id}</Link>
+		<Link  to={`/rickandmorty/locations/${props.location.id}`} 
+		key={`${props.location.name}${props.location.id}`}
+		>
+			Location #{props.location.id}
+		</Link>
 		</L>				
 		</div>
 			
-
-			
-		
 	);
 }  
 

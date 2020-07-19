@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, Route} from 'react-router-dom';
-import SingleEpisodeCard from './SingleEpisodeCard';
 
-export default function EpisodeCard({name, episode, created, characters, id}, props) {
+
+export default function EpisodeCard( props) {
 	return (
 		<Card>
-		<Route exact path="/rickandmorty/episodes/:episodeID" component={SingleEpisodeCard}/>
-			<Link to={`/rickandmorty/episodes/${id}`} key={`${name}${id}`}>
-				<h2> {name} </h2>
+			<Link
+			 to={`/rickandmorty/episodes/${props.episode.id}`}
+			 key={`${props.episode.name}${props.episode.id}`}
+			 >
+			 <h2> {props.episode.name} </h2>
 			</Link>
-			<div>episode: {episode} </div>
-			<div>created: {created} </div>
+			<div>episode: {props.episode.episode} </div>
+			<div>created: {props.episode.created} </div>
 		</Card>
 	);
 }

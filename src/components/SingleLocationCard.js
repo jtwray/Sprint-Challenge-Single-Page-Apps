@@ -1,29 +1,29 @@
 import React, {useState, useEffect} from 'react';
-import {NavLink, Route} from 'react-router-dom';
+
 import styled from 'styled-components';
 import Axios from 'axios';
 
 export default function SingleLocationCard(props) {
-	const [location, setLocation] = useState({});
+	const [locationcard, setLocationcard] = useState({});
 	console.log(props.match);
-	const locationid = props.match.params.locationID;
+	const locationID = props.match.params.locationID;
 
 	useEffect(
 		() => {
-			Axios.get(`https://rickandmortyapi.com/api/location/${locationid}`)
-				.then(res => setLocation(res.data))
+			Axios.get(`https://rickandmortyapi.com/api/location/${locationID}`)
+				.then(res => setLocationcard(res.data))
 				.then(res => console.log(res))
 				.catch(error => console.log(error));
 		},
-		[locationid,setLocation]
+		[locationID]
 	);
 	return (
 		<div>
 			<LCard>
-				<h1> {location.name} </h1>
+				<h1> {locationcard.name} </h1>
 
-				<h4>dimension: {location.dimension} </h4>
-				<h4>type: {location.type} </h4>
+				<h4>dimension: {locationcard.dimension} </h4>
+				<h4>type: {locationcard.type} </h4>
 			</LCard>
 		</div>
 	);
